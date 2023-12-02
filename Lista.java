@@ -122,21 +122,33 @@ public boolean borrarCualquierNodo(String buscado){
         }
     }
 
-    // Método para intercambiar un nodo por otro buscado
-    public boolean intercambiarNodo(String buscado, String nuevoNombre) {
-        Node temp = this.top;
+    // Metodo para intercambiar nodos
+    public void intercambiarNodos(String nombre1, String nombre2) {
+    // Buscar nodos con los nombres dados
+    Node nodo1 = null;
+    Node nodo2 = null;
+    Node temp = this.top;
 
-        while (temp != null && !temp.name.equals(buscado)) {
-            temp = temp.next;
+    while (temp != null) {
+        if (temp.name.equals(nombre1)) {
+            nodo1 = temp;
+        } else if (temp.name.equals(nombre2)) {
+            nodo2 = temp;
         }
 
-        if (temp != null) {
-            temp.name = nuevoNombre;
-            return true;
-        } else {
-            return false; // Nodo buscado no encontrado
-        }
+        temp = temp.next;
     }
+
+    // Verificar si se encontraron ambos nodos
+    if (nodo1 != null && nodo2 != null) {
+        // Intercambiar nodos
+        String tempName = nodo1.name;
+        nodo1.name = nodo2.name;
+        nodo2.name = tempName;
+    } else {
+        System.out.println("Uno o ambos nodos no encontrados.");
+    }
+}
 
 
 }
