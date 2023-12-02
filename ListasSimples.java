@@ -24,7 +24,7 @@ public class ListasSimples{
         lista.insertarAntesUltimo("Nuevo");
         lista.imprimir();
 
-        lista.intercambiarNodo("H", "Y");
+        lista.intercambiarNodos("H", "Y");
         lista.imprimir();
 }
 
